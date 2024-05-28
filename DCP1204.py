@@ -31,6 +31,30 @@ def greatestCommonFactorI(arr):
                 num = num - a
     return a
 
+# Use Euclid's algorithm to find the GCF recursively
+
+def greatestCommonFactorR(arr):
+    if len(arr) == 0:
+        return None
+    # start our calculation from the first number in the array
+    a = arr[0]
+
+    # for each pair of numbers in the array, calculate the gcf
+    for b in arr[1:]:
+
+        # Euclid's algorithm recursively
+        while b != 0:
+
+            # tuple assignment
+            # the expression on the right side of the (=) is evaluated first, 
+            # and then the resulting values are assigned to the variables on the left side of the assignment.
+            # so the current value of b
+            # then a % b
+            # then assignments a -> b and b -> a % b
+            a, b = b, a % b
+    return a
+
+
 
 gcf = greatestCommonFactorI(arr)
 

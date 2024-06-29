@@ -1,3 +1,5 @@
+# Solving this: https://neetcode.io/problems/minimum-stack
+
 class MinStack:
 
     def __init__(self):
@@ -6,7 +8,10 @@ class MinStack:
 
     def push(self, val: int) -> None:
         self.min_stack.append(val)
-        self.min_array.append(min(val, self.min_array[-1]))
+        if not self.min_array:
+            self.min_array.append(val)
+        else:
+            self.min_array.append(min(val, self.min_array[-1]))
             
 
     def pop(self) -> None:
